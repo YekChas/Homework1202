@@ -90,8 +90,7 @@ public class DeliveryTest {
     @DisplayName("Рассчет доставки товара на -1 км]")
     void testNegativeDistance() {
         Delivery del = new Delivery(-1, CargoDimension.SMALL, false, ServiceWorkload.NORMAL);
-        Throwable exception = assertThrows(UnsupportedOperationException.class, del::calculateDeliveryCost);
+        Throwable exception = assertThrows(IllegalArgumentException.class, del::calculateDeliveryCost        );
         assertEquals("destinationDistance should be a positive number!", exception.getMessage());
     }
-
 }
